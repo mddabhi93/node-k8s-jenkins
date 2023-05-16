@@ -7,8 +7,7 @@ pipeline {
         stage('Build Docker Image'){
             steps{
 	        sh "npm i"
-		#sh "npm run build"
-                sh "docker build . -t kammana/nodeapp:${DOCKER_TAG} "
+		sh "docker build . -t kammana/nodeapp:${DOCKER_TAG} "
             }
         }
 /*        stage('DockerHub Push'){
