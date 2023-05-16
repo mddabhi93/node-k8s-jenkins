@@ -8,7 +8,7 @@ pipeline {
             steps{
 	        sh "npm i"
 		sh "docker build . -t kammana/nodeapp:${DOCKER_TAG} "
-		sh "cp -r /* /home/ubuntu"
+		
             }
         }
 /*        stage('DockerHub Push'){
@@ -26,6 +26,7 @@ pipeline {
 					    sh returnStatus: true, script: 'ssh ubuntu@172.31.24.235 docker rm -f nodeapp'
 						def runCmd = "docker run -d -p 80:80 --name=nodeapp kammana/nodeapp:${DOCKER_TAG}"
 						sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.24.235 ${runCmd}"
+						sh "ssh ubuntu@172.31.24.235 /* /home/ubuntu/"
 					}
 				}
             }
